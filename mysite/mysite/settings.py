@@ -82,11 +82,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(
-        # Feel free to alter this value to suit your needs.
-        default='postgres://nurtore:V6PQxBRS8EpofZT4aoKgOz10RQf8uVZq@dpg-cled20ts40us73c00ncg-a/database_as_2',
-        conn_max_age=600
-    )
+    # 'default': dj_database_url.config(
+    #     # Feel free to alter this value to suit your needs.
+    #     default='postgres://nurtore:V6PQxBRS8EpofZT4aoKgOz10RQf8uVZq@dpg-cled20ts40us73c00ncg-a/database_as_2',
+    #     conn_max_age=600
+    # )
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'database_as_2',
@@ -95,7 +95,10 @@ DATABASES = {
     #     'HOST': 'postgres://nurtore:V6PQxBRS8EpofZT4aoKgOz10RQf8uVZq@dpg-cled20ts40us73c00ncg-a.oregon-postgres.render.com/database_as_2',  # Set to your database host.
     #     'PORT': '5432',
     # }
-
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation

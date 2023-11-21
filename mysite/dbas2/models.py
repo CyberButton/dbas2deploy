@@ -24,8 +24,8 @@ class Caregiver(models.Model):
     caregiver_user_id = models.OneToOneField(User, on_delete=models.CASCADE, db_column='caregiver_user_id',
                                              primary_key=True)
     photo = models.BinaryField()  # Represents BYTEA
-    gender = models.CharField(choices=[('male', 'Male'), ('female', 'Female')])
-    caregiving_type = models.CharField(choices=[('babysitter', 'Babysitter'),
+    gender = models.CharField(max_length=60, choices=[('male', 'Male'), ('female', 'Female')])
+    caregiving_type = models.CharField(max_length=60, choices=[('babysitter', 'Babysitter'),
                                                 ('caregiver for elderly', 'Caregiver for Elderly'),
                                                 ('playmate for children', 'Playmate for Children')])
     hourly_rate = models.DecimalField(max_digits=10, decimal_places=2)
@@ -45,7 +45,7 @@ class Member(models.Model):
 class Job(models.Model):
     job_id = models.AutoField(primary_key=True)
     member = models.ForeignKey(Member, on_delete=models.CASCADE, db_column='member_user_id')
-    required_caregiving_type = models.CharField(choices=[('babysitter', 'Babysitter'),
+    required_caregiving_type = models.CharField(max_length=60, choices=[('babysitter', 'Babysitter'),
                                                          ('caregiver for elderly', 'Caregiver for Elderly'),
                                                          ('playmate for children', 'Playmate for Children')])
     other_requirements = models.TextField()
@@ -72,7 +72,7 @@ class Appointment(models.Model):
     appointment_date = models.DateField()
     appointment_time = models.TextField()
     work_hours = models.IntegerField()
-    status = models.CharField(choices=[('confirmed', 'Confirmed'), ('declined', 'Declined'), ('waiting', 'Waiting')])
+    status = models.CharField(max_length=60, choices=[('confirmed', 'Confirmed'), ('declined', 'Declined'), ('waiting', 'Waiting')])
 
     class Meta:
         db_table = 'appointment'
