@@ -87,6 +87,15 @@ DATABASES = {
         default='postgres://nurtore:V6PQxBRS8EpofZT4aoKgOz10RQf8uVZq@dpg-cled20ts40us73c00ncg-a/database_as_2',
         conn_max_age=600
     )
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'database_as_2',
+    #     'USER': 'nurtore',
+    #     'PASSWORD': 'V6PQxBRS8EpofZT4aoKgOz10RQf8uVZq',
+    #     'HOST': 'postgres://nurtore:V6PQxBRS8EpofZT4aoKgOz10RQf8uVZq@dpg-cled20ts40us73c00ncg-a.oregon-postgres.render.com/database_as_2',  # Set to your database host.
+    #     'PORT': '5432',
+    # }
+
 }
 
 # Password validation

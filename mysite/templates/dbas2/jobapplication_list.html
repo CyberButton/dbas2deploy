@@ -1,0 +1,33 @@
+<!-- templates/dbas2/jobapplication_list.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>Job Application List</h2>
+  <a href="{% url 'jobapplication_create' %}">Add New Job Application</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Caregiver ID</th>
+        <th>Job ID</th>
+        <th>Date Applied</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for jobapplication in jobapplications %}
+        <tr>
+          <td>{{ jobapplication.id }}</td>
+          <td>{{ jobapplication.caregiver.caregiver_user_id }}</td>
+          <td>{{ jobapplication.job.job_id }}</td>
+          <td>{{ jobapplication.date_applied }}</td>
+          <td>
+            <a href="{% url 'jobapplication_update' jobapplication.id %}">Edit</a>
+            <a href="{% url 'jobapplication_delete' jobapplication.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    <a href="{% url 'cruds' %}">Back</a>
+{% endblock %}

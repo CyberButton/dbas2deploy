@@ -1,0 +1,12 @@
+<!-- templates/dbas2/address_form.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>{% if address.id %}Edit Address{% else %}Add Address{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'address_list' %}">Back to List</a>
+{% endblock %}

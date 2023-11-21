@@ -1,0 +1,12 @@
+<!-- templates/dbas2/jobapplication_form.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>{% if jobapplication.job_id %}Edit Job Application{% else %}Add Job Application{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'jobapplication_list' %}">Back to List</a>
+{% endblock %}

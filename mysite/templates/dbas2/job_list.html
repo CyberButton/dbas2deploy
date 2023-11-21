@@ -1,0 +1,35 @@
+<!-- templates/dbas2/job_list.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>Job List</h2>
+  <a href="{% url 'job_create' %}">Add New Job</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Member ID</th>
+        <th>Required Caregiving Type</th>
+        <th>Other Requirements</th>
+        <th>Date Posted</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for job in jobs %}
+        <tr>
+          <td>{{ job.job_id }}</td>
+          <td>{{ job.member_user_id }}</td>
+          <td>{{ job.required_caregiving_type }}</td>
+          <td>{{ job.other_requirements }}</td>
+          <td>{{ job.date_posted }}</td>
+          <td>
+            <a href="{% url 'job_update' job.job_id %}">Edit</a>
+            <a href="{% url 'job_delete' job.job_id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    <a href="{% url 'cruds' %}">Back</a>
+{% endblock %}

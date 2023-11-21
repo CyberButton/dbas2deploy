@@ -1,0 +1,13 @@
+<!-- templates/dbas2/appointment_form.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>{% if appointment.appointment_id %}Edit Appointment{% else %}Add Appointment{% endif %}</h2>
+    <h3>date format: yyyy-mm-dd, ex: 2023-11-21</h3>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'appointment_list' %}">Back to List</a>
+{% endblock %}

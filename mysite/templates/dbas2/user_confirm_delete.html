@@ -1,0 +1,11 @@
+<!-- templates/dbas2/user_confirm_delete.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>Are you sure you want to delete "{{ user.given_name }} {{ user.surname }}"?</h2>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+  <a href="{% url 'user_list' %}">Cancel</a>
+{% endblock %}

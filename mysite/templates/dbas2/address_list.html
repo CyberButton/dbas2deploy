@@ -1,0 +1,33 @@
+<!-- templates/dbas2/address_list.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>Address List</h2>
+  <a href="{% url 'address_create' %}">Add New Address</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Member ID</th>
+        <th>House Number</th>
+        <th>Street</th>
+        <th>Town</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for address in addresses %}
+        <tr>
+          <td>{{ address.house_number }}</td>
+          <td>{{ address.house_number }}</td>
+          <td>{{ address.street }}</td>
+          <td>{{ address.town }}</td>
+          <td>
+            <a href="{% url 'address_update' address.id %}">Edit</a>
+            <a href="{% url 'address_delete' address.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    <a href="{% url 'cruds' %}">Back</a>
+{% endblock %}

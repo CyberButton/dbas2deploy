@@ -1,0 +1,12 @@
+<!-- templates/dbas2/caregiver_form.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>{% if caregiver.caregiver_user_id %}Edit Caregiver{% else %}Add Caregiver{% endif %}</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'caregiver_list' %}">Back to List</a>
+{% endblock %}

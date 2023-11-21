@@ -1,0 +1,35 @@
+<!-- templates/dbas2/user_list.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>User List</h2>
+  <a href="{% url 'user_create' %}">Add New User</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Given Name</th>
+        <th>Surname</th>
+        <th>City</th>
+        <!-- Add other fields as needed -->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <td>{{ user.email }}</td>
+          <td>{{ user.given_name }}</td>
+          <td>{{ user.surname }}</td>
+          <td>{{ user.city }}</td>
+          <!-- Add other fields as needed -->
+          <td>
+        <a href="{% url 'user_update' user.user_id %}">Edit</a>
+        <a href="{% url 'user_delete' user.user_id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+      <a href="{% url 'cruds' %}">Back</a>
+{% endblock %}

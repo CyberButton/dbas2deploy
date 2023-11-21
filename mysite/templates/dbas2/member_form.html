@@ -1,0 +1,12 @@
+<!-- templates/dbas2/member_form.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>{% if member.id %}Edit Member{% else %}Add Member{% endif %}</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+  </form>
+  <a href="{% url 'member_list' %}">Back to List</a>
+{% endblock %}

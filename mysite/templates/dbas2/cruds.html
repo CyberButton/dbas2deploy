@@ -1,0 +1,15 @@
+<!-- templates/dbas2/cruds.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>CRUD Operations Dashboard</h2>
+  <ul>
+    <li><a href="{% url 'user_list' %}">Manage Users</a></li>
+    <li><a href="{% url 'caregiver_list' %}">Manage Caregivers</a></li>
+    <li><a href="{% url 'member_list' %}">Manage Members</a></li>
+    <li><a href="{% url 'job_list' %}">Manage Jobs</a></li>
+    <li><a href="{% url 'jobapplication_list' %}">Manage Job Applications</a></li>
+    <li><a href="{% url 'appointment_list' %}">Manage Appointments</a></li>
+    <li><a href="{% url 'address_list' %}">Manage Addresses</a></li>
+  </ul>
+{% endblock %}

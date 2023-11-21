@@ -1,0 +1,40 @@
+<!-- templates/dbas2/appointment_list.html -->
+{% extends 'dbas2/base.html' %}
+
+{% block content %}
+  <h2>Appointment List</h2>
+  <a href="{% url 'appointment_create' %}">Add New Appointment</a>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Caregiver ID</th>
+        <th>Member ID</th>
+        <th>Appointment Date</th>
+        <th>Appointment Time</th>
+        <th>Work Hours</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for appointment in appointments %}
+        <tr>
+          <td>{{ appointment.id }}</td>
+          <td>{{ appointment.caregiver.caregiver_user_id.user_id }}</td>
+          <td>{{ appointment.member.user_id }}</td>
+          <td>{{ appointment.appointment_date }}</td>
+          <td>{{ appointment.appointment_time }}</td>
+          <td>{{ appointment.work_hours }}</td>
+          <td>{{ appointment.status }}</td>
+          <td>
+            <a href="{% url 'appointment_update' appointment.id %}">Edit</a>
+            <a href="{% url 'appointment_delete' appointment.id %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    <a href="{% url 'cruds' %}">Back</a>
+{% endblock %}
+
