@@ -2,7 +2,7 @@
 name = "mysite"
 version = "0.1.0"
 description = ""
-authors = ["CyberButton <87766623307Kk>"]
+authors = ["CyberButton"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
