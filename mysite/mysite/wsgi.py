@@ -12,12 +12,7 @@ import os
 import django
 from django.core.wsgi import get_wsgi_application
 
-from dbas2.scheduler import start
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 
-django.setup()
-
 application = get_wsgi_application()
-
-start()
