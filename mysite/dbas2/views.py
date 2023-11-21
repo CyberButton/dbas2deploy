@@ -9,6 +9,14 @@ from .models import User, Caregiver, Member, Job, Appointment, JobApplication, A
 from .forms import UserForm, CaregiverForm, MemberForm, JobForm, \
     AppointmentForm, JobApplicationForm, AddressForm  # You'll need to create a UserForm using Django's forms
 
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+def ping():
+    logger.info("Ping! App is alive.")
+
 
 def user_list(request):
     users = User.objects.all()
