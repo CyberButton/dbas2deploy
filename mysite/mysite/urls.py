@@ -65,4 +65,6 @@ urlpatterns = [
     path('cruds/address/create/', views.address_create, name='address_create'),
     path('cruds/address/update/<int:id>/', views.address_update, name='address_update'),
     path('cruds/address/delete/<int:id>/', views.address_delete, name='address_delete'),
+
+    path('ping', views.ping_view, name='ping'),
 ]

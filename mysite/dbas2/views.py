@@ -11,7 +11,14 @@ from .forms import UserForm, CaregiverForm, MemberForm, JobForm, \
 
 import logging
 
+from django.http import JsonResponse
+
 logger = logging.getLogger(__name__)
+
+
+def ping_view(request):
+    # Respond to the ping
+    return JsonResponse({"message": "Ping received!"})
 
 
 def ping():
